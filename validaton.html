@@ -1,0 +1,101 @@
+<form id="validation">
+    <table class="hello">
+        
+        <tr>
+            <td>name :</td>
+            <td>
+                <input type="text" id="name" name="name">
+            </td>
+        </tr>
+        <tr>
+            <td>email :</td>
+            <td>
+                <input type="email" id="email" name="email">
+            </td>
+        </tr>
+        <tr>
+            <td>password :</td>
+            <td>
+                <input type="password" id="password" name="password">
+            </td>
+        </tr>
+        <tr>
+            <td>number :</td>
+            <td>
+                <input type="text" id="num" name="num">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="submit" style="margin-left: 50%; "></td>
+        </tr>
+    </table>
+</form>
+<style>
+   
+       
+    .hello{
+        background-color: beige;
+        margin-top: 20%;
+        margin-left: 40%;
+        padding: 30px;
+        border-radius: 10px;
+    }
+    .hello input{
+        border-radius: 5px;
+        height: 30px;
+        text-align: center;
+    }
+    
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js" type="text/javascript"></script>
+<script>
+    
+        $('#validation').validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                email: {
+                    required: true,
+                    email: true,
+                },
+                password: {
+                    required: true,
+                    abc : true,
+                },
+                num: {
+                    required: true,
+                    digits: true,
+                    minlength: 10,
+                    maxlength: 10,
+                },
+            },
+            messages: {
+                name: {
+                    required: "<span style='color:red'>Enter your name..!</span>",
+                    minlength: "<span style='color:red'>Should be at least 2 characters</span>",
+                },
+                email: {
+                    required: "<span style='color:red'>Enter your email..!</span>",
+                    email: "<span style='color:red'>Enter a valid email address..!</span>",
+                },
+                password: {
+                    required: "<span style='color:red'>Enter your password..!</span>",
+                   abc :  "<span style='color:red'>[7 to 15 characters which contain only characters, numeric digits, underscore and first character must be a letter]</h2/</span>",
+                },
+                num: {
+                    required: "<span style='color:red'>Enter your number..!</span>",
+                    digits: "<span style='color:red'>Enter only digits..!</span>",
+                    minlength: "<span style='color:red'>Enter a 10-digit number..!</span>",
+                    maxlength: "<span style='color:red'>Enter only 10 digits..!</span>",
+                },
+            },
+        });
+
+
+    $.validator>addMethod(abc , function(value){
+        return  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/.test(value);
+    });
+</script>

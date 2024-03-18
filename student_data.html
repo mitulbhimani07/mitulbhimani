@@ -1,0 +1,71 @@
+<script>
+    class student{
+        stu_Details(name , grid , num){
+            this.name = name;
+            this.grid =grid;
+            this.number =num;
+        }
+        stu_Marks(s1 , s2 , s3){
+            this.s1=s1;
+            this.s2=s2;
+            this.s3=s3;
+            this.total=s1+s2+s3;
+            this.avg = this.total/3;
+            this.stu_grade();
+        }
+        stu_grade(){
+            if(this.avg>=35 && this.avg <=50){
+                this.grade = "C";
+            }
+            else if(this.avg>50 && this.avg <=70){
+                this.grade = "B";
+            }
+            else if(this.avg>70 && this.avg <100){
+                this.grade = "A";
+            }
+            else{
+                this.grade = "fail";
+            }
+            this.stu_data();
+        }
+        stu_data(){
+            console.log("students Details :");
+            console.log("-----------------");
+            console.log("stu name :"+this.name);
+            console.log("stu grid :"+this.grid);
+            console.log("stu number :"+this.number);
+            console.log("-----------------");
+            console.log("Students Maeks :");
+            console.log("-----------------");
+            console.log("s1 marks :"+this.s1);
+            console.log("s2 marks :"+this.s2);
+            console.log("s3 marks :"+this.s3);
+            console.log("total marks :"+this.total);
+            console.log("avg marks :"+this.avg);
+            console.log("grade marks :"+this.grade);
+        }
+    }
+
+    var stu=new student;
+    var name = prompt("Enter STU Name ");
+    var grid = prompt("Enter STU GRID ");
+    var num = prompt("Enter STU Number ");
+    stu.stu_Details(name , grid , num);
+    var s1=parseInt(prompt("s1 marks"));
+    var s2=parseInt(prompt("s2 marks"));
+    var s3=parseInt(prompt("s3 marks"));
+    
+    stu.stu_Marks(s1,s2,s3);
+
+    
+    var stu1=new student;
+    var name = prompt("Enter STU Name ");
+    var grid = prompt("Enter STU GRID ");
+    var num = prompt("Enter STU Number ");
+    stu1.stu_Details(name , grid , num);
+    var s1=parseInt(prompt("s1 marks"));
+    var s2=parseInt(prompt("s2 marks"));
+    var s3=parseInt(prompt("s3 marks"));
+    
+    stu1 .stu_Marks(s1,s2,s3);
+</script>

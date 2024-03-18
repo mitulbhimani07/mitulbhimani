@@ -1,0 +1,223 @@
+<!-- <form onsubmit="return formvalidation()" >
+    <table border="1">
+        <tr>
+            <td>name :</td>
+            <td>
+                <input type="text" id="name">
+                <span style="color: red;" id="errorname"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>email :</td>
+            <td>
+                <input type="email" id="mail">
+                <span id="errormail"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>password :</td>
+            <td>
+                <input type="password" id="pass">
+                <span id="errorpass"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>number :</td>
+            <td>
+                <input type="text" id="number">
+                <span id="errornumber"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>date :</td>
+            <td>
+                <input type="date" id="date">
+                <span id="errordate"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>hobby :</td>
+            <td>
+                <input type="checkbox" id="gaming">gaming
+                <input type="checkbox" id="cooking">cooking
+                <input type="checkbox" id="play">play
+                <span id="errorhobby"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="submit" id="">
+            </td>
+        </tr>
+    </table>
+</form>
+<script>
+    function formvalidation(){
+        var name = document.getElementById('errorname').value;
+        var mail = document.getElementById('errormail').value;
+        var pass = document.getElementById('errorpass').value;
+        var number = document.getElementById('errornumber').value;
+        var date = document.getElementById('errordate').value;
+        var gaming = document.getElementById('errorgaming').value;
+        var cooking = document.getElementById('errorcooking').value;
+        var play = document.getElementById('errorplay').value;
+        var passformate =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+        var mailformate =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        if(name == ''){
+            document.getElementById('errorname').innerHTML = "name is required..!";
+            return false;
+        }
+        else if(name.lenght < 2){
+            document.getElementById('errorname').innerHTML = "shold be required more than 2 charctor";
+            return false;
+        }
+        else if(mail == ''){
+            document.getElementById('errorname').innerHTML = "";
+            document.getElementById('errormail').innerHTML = "email is required";
+            return false;
+        }
+        else if(!mail.match(mailformate)){
+            document.getElementById('errormail'.innerHTML = "enetr your valid email");
+            return false;
+        }   
+        else if(pass == ''){
+            document.getElementById('errormail').innerHTML = "";
+            document.getElementById('errorpass'.innerHTML = "pasword is required");
+            return false;
+        }
+        else if(!pass.match(passformate)){
+            document.getElementById('errormail').innerHTML = "";
+            document.getElementById('errorpass'.innerHTML = "enetr your valid pasword");
+            return false;
+        }
+        else if(number == ''){
+            document.getElementById('errorpass').innerHTML = "";
+            document.getElementById('errornumber'.innerHTML = "enetr your 10 digit numbers is required");
+            return false;
+        }
+        else if(number.lenght!=10){
+            document.getElementById('errorpass').innerHTML = "";
+            document.getElementById('errornumber'.innerHTML = "enetr your valid 10 digit numbers ");
+            return false;
+        }
+        else if(date == ''){
+            document.getElementById('errornumber').innerHTML = "";
+            document.getElementById('errordate').innerHTML = "enetr your valid 10 digit numbers";
+            return false;
+        }
+        else{
+            return true;
+        }
+        
+    }
+</script> -->
+<form onsubmit="return formvalidation()">
+    <table border="1">
+        <tr>
+            <td>name :</td>
+            <td>
+                <input type="text" id="name">
+                <span style="color: red;" id="errorname"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>email :</td>
+            <td>
+                <input type="email" id="mail">
+                <span style="color: red;" id="errormail"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>password :</td>
+            <td>
+                <input type="password" id="pass">
+                <span style="color: red;" id="errorpass"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>number :</td>
+            <td>
+                <input type="text" id="number">
+                <span style="color: red;" id="errornumber"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>date :</td>
+            <td>
+                <input type="date" id="date">
+                <span style="color: red;" id="errordate"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>hobby :</td>
+            <td>
+                <input type="checkbox" id="gaming">gaming
+                <input type="checkbox" id="cooking">cooking
+                <input type="checkbox" id="play">play
+                <span style="color: red;" id="errorhobby"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="submit">
+            </td>
+        </tr>
+    </table>
+</form>
+<script>
+    function formvalidation() {
+        var name = document.getElementById('name').value; // Fixed the typo
+        var mail = document.getElementById('mail').value; // Fixed the typo
+        var pass = document.getElementById('pass').value; // Fixed the typo
+        var number = document.getElementById('number').value; // Fixed the typo
+        var date = document.getElementById('date').value; // Fixed the typo
+        var gaming = document.getElementById('gaming').checked; // Checked if checkbox is checked
+        var cooking = document.getElementById('cooking').checked; // Checked if checkbox is checked
+        var play = document.getElementById('play').checked; // Checked if checkbox is checked
+        var passformat = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        // Resetting error messages
+        document.getElementById('errorname').innerHTML = "";
+        document.getElementById('errormail').innerHTML = "";
+        document.getElementById('errorpass').innerHTML = "";
+        document.getElementById('errornumber').innerHTML = "";
+        document.getElementById('errordate').innerHTML = "";
+        document.getElementById('errorhobby').innerHTML = "";
+
+        if (name == '') {
+            document.getElementById('errorname').innerHTML = "name is required..!";
+            return false;
+        } else if (name.length < 2) {
+            document.getElementById('errorname').innerHTML = "should be required more than 2 characters"; // Fixed the typo
+            return false;
+        } else if (mail == '') {
+            document.getElementById('errormail').innerHTML = "email is required";
+            return false;
+        } else if (!mail.match(mailformat)) {
+            document.getElementById('errormail').innerHTML = "enter your valid email";
+            return false;
+        } else if (pass == '') {
+            document.getElementById('errorpass').innerHTML = "password is required";
+            return false;
+        } else if (!pass.match(passformat)) {
+            document.getElementById('errorpass').innerHTML = "enter your valid password";
+            return false;
+        } else if (number == '' || isNaN(number)) {
+            document.getElementById('errornumber').innerHTML = "enter a valid number"; // Changed the error message
+            return false;
+        } else if (number.length != 10) {
+            document.getElementById('errornumber').innerHTML = "enter your valid 10 digit number";
+            return false;
+        } else if (date == '') {
+            document.getElementById('errordate').innerHTML = "enter a valid date";
+            return false;
+        } else if (!gaming && !cooking && !play) {
+            document.getElementById('errorhobby').innerHTML = "select at least one hobby";
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
